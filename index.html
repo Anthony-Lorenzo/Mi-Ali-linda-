@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Ali</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 100px;
+            padding: 20px;
+            background: white;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #d63384;
+            font-size: 50px;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #d63384;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #b32d6f;
+        }
+        .hidden {
+            display: none;
+        }
+        .signature {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #b32d6f;
+        }
+        .final-message {
+            font-size: 40px;
+            color: #d63384;
+            font-weight: bold;
+            margin-top: 50px;
+        }
+        /* Animación de corazones */
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 30px;
+            animation: fall 5s linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100px); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Corazones animados -->
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.innerHTML = "❤";
+            heart.classList.add("heart");
+            document.body.appendChild(heart);
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+
+    <h1>Para mi Ali</h1>
+
+    <button class="btn" onclick="mostrarMensaje()">Lo que te quiero decir</button>
+
+    <div class="container hidden" id="mensaje">
+        <p>Mi licenciada favorita, qué honor el mío,<br>  
+           tenerte cerca en cada desafío.<br>  
+           Brillas más que la luna en su esplendor,<br>  
+           y en mi vida eres puro color.</p>
+
+        <p>Mi niña linda, espero verte pronto para poder estar junto a ti.  
+           La distancia no impide mi cariño por ti, porque siempre estás en mi corazón.  
+           Cada día que pasa, mi deseo de abrazarte crece más.  
+        </p>
+
+        <button class="btn" onclick="mostrarMensajeFinal()">Mensaje final</button>
+    </div>
+
+    <div class="final-message hidden" id="mensaje-final">Eres mi niña especial</div>
+
+    <script>
+        function mostrarMensaje() {
+            document.getElementById("mensaje").classList.remove("hidden");
+        }
+
+        function mostrarMensajeFinal() {
+            document.getElementById("mensaje-final").classList.remove("hidden");
+        }
+    </script>
+
+</body>
+</html>
